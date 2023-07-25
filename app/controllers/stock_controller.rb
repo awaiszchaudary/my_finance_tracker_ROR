@@ -25,4 +25,11 @@ class StockController < ApplicationController
         end
     end
 
+    def create
+        current_user.stocks.create(name: params[:name], ticker: params[:ticker], last_price: params[:last_price])
+        flash[:notice] = "Stock added to your porfolio"
+        redirect_to portfolio_path
+    end
+
+
 end

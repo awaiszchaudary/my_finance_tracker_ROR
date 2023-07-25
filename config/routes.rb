@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   get 'portfolio', to: 'user#portfolio'
 
   get 'search', to: 'stock#search'
+  post 'create_stock', to: 'stock#create'
 
 end

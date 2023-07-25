@@ -8,6 +8,31 @@
 <div id="stocks">
 </div>
 
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Ticker</th>
+      <th scope="col">Last price</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user_stocks.each do |stock| %>
+        <tr>
+            <th scope="row"><%= stock.name %></th>
+            <td><%= stock.ticker %></td>
+            <td><%= stock.last_price %></td>
+            <td>Actions</td>
+        </tr>    
+    <% end %>
+    
+  </tbody>
+</table>
+
+
+
+
 
 
 

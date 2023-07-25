@@ -3,8 +3,28 @@
 
 <% if @stock %>
 
-    <p><%= @stock.name  %></p>
-    <p><%= @stock.ticker  %></p>
-    <p><%= @stock.last_price  %></p>
+    <div class="container">
+        <div class="row border border-dark">
+            <div class="col-sm">
+                <p><b>Name:</b> <%= @stock.name %></p>
+            </div>
+            <div class="col-sm">
+                <p><b>Ticker:</b> <%= @stock.ticker %></p>
+            </div>
+            <div class="col-sm">
+                <p><b>Last price:</b> <%= @stock.last_price %></p>
+            </div>
+            <% if current_user.can_track_stock?(@stock.ticker) %>
+                <div class="col-sm">
+                    <%= link_to 'Add to my portfolio', create_stock_path(name: @stock.name, ticker: @stock.ticker, last_price: @stock.last_price), class: 'btn btn-success', data: {turbo_method: :post} %>
+                </div>
+            <% else %>
+                <div class="col-sm">
+                    <p><%= 'Already tracking this stock' %></p>
+                </div>
+            <% end %>
+        </div>
+    </div>
 
 <% end %>
+
