@@ -1,0 +1,10 @@
+
+<%= render 'layouts/messages' %>
+
+<% if @stock %>
+
+    <p><%= @stock.name  %></p>
+    <p><%= @stock.ticker  %></p>
+    <p><%= @stock.last_price  %></p>
+
+<% end %>
