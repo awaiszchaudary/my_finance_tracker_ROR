@@ -11,5 +11,6 @@ Rails.application.routes.draw do
 
   get 'search', to: 'stock#search'
   post 'create_stock', to: 'stock#create'
+  delete 'destroy_stock', to: 'stock#destroy'
 
 end

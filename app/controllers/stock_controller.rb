@@ -31,5 +31,12 @@ class StockController < ApplicationController
         redirect_to portfolio_path
     end
 
+    def destroy
+        @st = current_user.user_stocks.find_by(stock_id: params[:id])
+        @st.destroy
+        flash[:notice] = "Stock removed from portfolio successfully"
+        redirect_to portfolio_path
+    end
+
 
 end
