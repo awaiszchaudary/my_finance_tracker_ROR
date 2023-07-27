@@ -1,0 +1,30 @@
+
+<%= render 'layouts/messages' %>
+
+<% if @friend %>
+
+    <div class="container">
+        <div class="row border border-dark">
+            <% @friend.each do |frie| %>
+                <div class="col-sm">
+                    <p><b>Email:</b> <%= frie.email %></p>
+                </div>
+                <div class="col-sm">
+                    <p><b>Full name:</b> <%= frie.full_name %></p>
+                </div>
+                <div class="col-sm">
+                    <%= link_to 'View profile', '#', class: 'btn btn-success' %>
+                </div>
+                <% if frie.in?(current_user.friends) %>
+                    <p>You are friends</p>
+                <% else %>
+                    <div class="col-sm" >
+                        <%= link_to 'Follow friend?', follow_friend_path(id: frie.id, email: frie.email, first_name: frie.first_name, last_name: frie.last_name), class: "btn btn-success", data: {turbo_method: :post} %>
+                    </div>
+                <% end %>
+                
+            <% end %>
+        </div>
+    </div>
+
+<% end %>

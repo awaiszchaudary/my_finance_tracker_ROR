@@ -12,5 +12,9 @@ Rails.application.routes.draw do
   get 'search', to: 'stock#search'
   post 'create_stock', to: 'stock#create'
   delete 'destroy_stock', to: 'stock#destroy'
+  get 'users_friends', to: 'user#friends'
+  delete 'destroy_friends', to: 'user#destroy'
+  get 'search_friend', to: 'user#search'
+  post 'follow_friend', to: 'user#create'
 
 end
